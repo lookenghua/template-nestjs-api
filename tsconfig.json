@@ -10,6 +10,17 @@
     "sourceMap": true,
     "outDir": "./dist",
     "baseUrl": "./",
-    "incremental": true
+    "incremental": true,
+    "paths": {
+      "_common/*": [
+        "src/common/*"
+      ],
+      "_util/*": [
+        "src/util/*"
+      ],
+      "_module/*": [
+        "src/module/*"
+      ]
+    }
   }
 }

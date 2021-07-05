@@ -8,7 +8,7 @@ import {
   NotFoundException,
 } from '@nestjs/common'
 import { ValidationErrorException } from '../exception/validation-error.exception'
-import { ApiErrorCode, ResponseData } from '../../util/response'
+import { ApiErrorCode, ResponseData } from '_util/response'
 
 @Catch()
 export class AllExceptionsFilter implements ExceptionFilter {
