@@ -1,7 +1,7 @@
 import { NestFactory } from '@nestjs/core'
 import { AppModule } from './app.module'
 import { ValidationPipe } from '@nestjs/common'
-import { ValidationErrorException } from './common/exception/validation-error.exception'
+import { ValidationErrorException } from '_common/exception/validation-error.exception'
 
 declare const module: any
 
@@ -16,7 +16,6 @@ async function bootstrap() {
     }),
   )
   await app.listen(3000)
-
   if (module.hot) {
     module.hot.accept()
     module.hot.dispose(() => app.close())
