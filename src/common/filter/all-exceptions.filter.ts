@@ -8,7 +8,7 @@ import {
   NotFoundException,
 } from '@nestjs/common'
 import { ValidationErrorException } from '../exception/validation-error.exception'
-import { ApiErrorCode, ResponseData } from '_util/response'
+import { ApiErrorCode, ApiUtil } from '_util/response'
 
 @Catch()
 export class AllExceptionsFilter implements ExceptionFilter {
@@ -22,13 +22,13 @@ export class AllExceptionsFilter implements ExceptionFilter {
         response
           .status(200)
           .json(
-            ResponseData.fail(
+            ApiUtil.fail(
               ApiErrorCode.ARGUMENTS_VALIDATE_ERROR,
               exception.message,
             ),
           )
       } else if (exception instanceof UnauthorizedException) {
-        response.status(200).json(ResponseData.fail(status, exception.message))
+        response.status(200).json(ApiUtil.fail(status, exception.message))
       } else if (exception instanceof BadRequestException) {
         response.status(200).json({
           code: status,
@@ -38,16 +38,12 @@ export class AllExceptionsFilter implements ExceptionFilter {
       } else if (exception instanceof NotFoundException) {
         response
           .status(200)
-          .json(ResponseData.fail(404, `${request.originalUrl}不存在`))
+          .json(ApiUtil.fail(404, `${request.originalUrl}不存在`))
       } else {
-        response
-          .status(200)
-          .json(ResponseData.fail(status, exception.message || ''))
+        response.status(200).json(ApiUtil.fail(status, exception.message || ''))
       }
     } else {
-      response
-        .status(200)
-        .json(ResponseData.fail(500, exception.toString() || ''))
+      response.status(200).json(ApiUtil.fail(500, exception.toString() || ''))
     }
   }
 }

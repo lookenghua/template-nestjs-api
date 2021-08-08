@@ -1,6 +1,6 @@
 import { ClassConstructor, plainToClass } from 'class-transformer'
 
-export class ResponseData {
+export class ApiUtil {
   static success(data?: any) {
     return { success: true, data }
   }
