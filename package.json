@@ -20,7 +20,8 @@
     "postinstall": "npm run db:generate",
     "db:generate": "prisma generate",
     "db:migrate": "prisma migrate dev",
-    "docker": "docker build -t nest ."
+    "docker": "docker build -t nest .",
+    "deploy": "ncc build src/main.ts -o pkg"
   },
   "dependencies": {
     "@nestjs/common": "^9.2.0",
@@ -40,7 +41,8 @@
     "passport-local": "^1.0.0",
     "reflect-metadata": "^0.1.13",
     "rimraf": "^3.0.2",
-    "rxjs": "^7.1.0"
+    "rxjs": "^7.1.0",
+    "prisma-client": "file:packages/prisma/prisma-client-js"
   },
   "devDependencies": {
     "@nestjs/cli": "^9.1.5",

@@ -8,7 +8,7 @@ datasource db {
 
 generator client {
   provider        = "prisma-client-js"
-  previewFeatures = ["nApi"]
+  output   = "../packages/prisma/prisma-client-js"
 }
 
 model User {
