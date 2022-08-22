@@ -20,6 +20,9 @@
       ],
       "_module/*": [
         "src/module/*"
+      ],
+      "prisma-client": [
+        "packages/prisma/prisma-client-js/index.js"
       ]
     }
   }
